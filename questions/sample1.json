@@ -1,0 +1,175 @@
+{
+ "title": "Sample Test 1 (15 questions)",
+ "durationMinutes": 20,
+ "marking": {
+  "correct": 4,
+  "wrong": -1
+ },
+ "sections": [
+  {
+   "name": "Physics",
+   "questions": [
+    {
+     "q": "Unit of electric charge?",
+     "options": [
+      "Volt",
+      "Coulomb",
+      "Ohm",
+      "Tesla"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "SI unit of force?",
+     "options": [
+      "Joule",
+      "Watt",
+      "Newton",
+      "Pascal"
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Speed of light is about (m/s)?",
+     "options": [
+      "3x10^6",
+      "3x10^8",
+      "3x10^10",
+      "3x10^5"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Which is a vector?",
+     "options": [
+      "Mass",
+      "Speed",
+      "Velocity",
+      "Time"
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Acceleration due to gravity on Earth (m/s^2)?",
+     "options": [
+      "9.8",
+      "98",
+      "0.98",
+      "19.6"
+     ],
+     "answer": 0
+    },
+    {
+     "q": "Unit of resistance?",
+     "options": [
+      "Ohm",
+      "Henry",
+      "Farad",
+      "Weber"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "name": "Chemistry",
+   "questions": [
+    {
+     "q": "Atomic number of Carbon?",
+     "options": [
+      "4",
+      "6",
+      "8",
+      "12"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Formula of water?",
+     "options": [
+      "H2O2",
+      "HO",
+      "H2O",
+      "OH2O"
+     ],
+     "answer": 2
+    },
+    {
+     "q": "pH of pure water at 25C?",
+     "options": [
+      "0",
+      "5",
+      "7",
+      "14"
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Most abundant gas in air?",
+     "options": [
+      "Oxygen",
+      "Nitrogen",
+      "Argon",
+      "CO2"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Symbol for Sodium?",
+     "options": [
+      "So",
+      "Na",
+      "S",
+      "Sd"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "name": "Maths",
+   "questions": [
+    {
+     "q": "Value of 12 x 12?",
+     "options": [
+      "124",
+      "144",
+      "132",
+      "169"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Derivative of x^2?",
+     "options": [
+      "x",
+      "2x",
+      "x^2",
+      "2"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Square root of 81?",
+     "options": [
+      "7",
+      "8",
+      "9",
+      "11"
+     ],
+     "answer": 2
+    },
+    {
+     "q": "Sum of angles in a triangle (degrees)?",
+     "options": [
+      "90",
+      "180",
+      "270",
+      "360"
+     ],
+     "answer": 1
+    }
+   ]
+  }
+ ]
+}

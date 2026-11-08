@@ -1,0 +1,72 @@
+{
+ "title": "Sample Test 2 - GK",
+ "durationMinutes": 5,
+ "marking": {
+  "correct": 2,
+  "wrong": -0.5
+ },
+ "sections": [
+  {
+   "name": "General Knowledge",
+   "questions": [
+    {
+     "q": "Capital of India?",
+     "options": [
+      "Mumbai",
+      "New Delhi",
+      "Kolkata",
+      "Chennai"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "ISRO is headquartered in?",
+     "options": [
+      "Delhi",
+      "Bengaluru",
+      "Hyderabad",
+      "Pune"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Largest planet?",
+     "options": [
+      "Earth",
+      "Mars",
+      "Jupiter",
+      "Venus"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "name": "English",
+   "marks": 1,
+   "negative": 0,
+   "questions": [
+    {
+     "q": "Synonym of 'rapid'?",
+     "options": [
+      "Slow",
+      "Quick",
+      "Dull",
+      "Late"
+     ],
+     "answer": 1
+    },
+    {
+     "q": "Plural of 'child'?",
+     "options": [
+      "Childs",
+      "Childes",
+      "Children",
+      "Child"
+     ],
+     "answer": 2
+    }
+   ]
+  }
+ ]
+}

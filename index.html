@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CBT Mock Test Engine</title>
+<style>
+:root{--bg:#eef1f5;--ink:#1c2430;--mut:#5d6b7c;--line:#cfd6df;--card:#fff;--navy:#17325c;--ok:#1f8a4c;--bad:#c0392b;--rev:#7a3fc4;--acc:#2456b8}
+@media(prefers-color-scheme:dark){:root{--bg:#10151c;--ink:#e6ebf2;--mut:#93a1b3;--line:#2b3644;--card:#18202a;--navy:#0d1f3c;--acc:#6b9bf2}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,"Segoe UI",Roboto,sans-serif}
+[hidden]{display:none!important}button{font:inherit;cursor:pointer;color:inherit}button:focus-visible,input:focus-visible+label{outline:3px solid var(--acc);outline-offset:2px}
+header{background:var(--navy);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.2rem}
+header h1{font-size:1.05rem;margin:0;font-weight:600}#timer{font:700 1.3rem ui-monospace,Consolas,monospace;background:#0006;padding:.15rem .7rem;border-radius:4px}#timer.low{background:var(--bad)}
+main{max-width:1100px;margin:1rem auto;padding:0 1rem}.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1.2rem}
+#start .card{max-width:560px;margin:3rem auto}#start h2{margin-top:0}#start code{background:var(--bg);padding:0 .3rem}
+.file{display:inline-block;background:var(--acc);color:#fff;padding:.6rem 1.1rem;border-radius:5px;font-weight:600}#file{position:absolute;opacity:0}#err{color:var(--bad);margin-top:.8rem}
+.layout{display:grid;grid-template-columns:1fr 280px;gap:1rem}@media(max-width:800px){.layout{grid-template-columns:1fr}}
+.top{display:flex;justify-content:space-between;color:var(--mut);margin-bottom:.6rem}#qtext{font-size:1.2rem;margin:.6rem 0 1rem;white-space:pre-wrap}
+.opt{display:flex;gap:.8rem;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:.7rem .9rem;margin-bottom:.5rem}
+.opt b{min-width:1.4rem}.opt:hover{border-color:var(--acc)}.opt.sel{border:2px solid var(--rev);background:color-mix(in srgb,var(--rev) 10%,var(--card))}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.bar button{border:1px solid var(--line);background:var(--card);padding:.55rem 1rem;border-radius:5px}
+.bar .primary{background:var(--rev);color:#fff;border-color:var(--rev)}.bar .danger{margin-left:auto;background:var(--ok);color:#fff;border-color:var(--ok);font-weight:600}
+aside h4{margin:.8rem 0 .4rem;font-size:.9rem;color:var(--mut)}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.4rem}
+.p{border:1px solid var(--line);border-radius:5px;background:var(--bg);padding:.35rem 0;min-width:2rem;text-align:center;display:inline-block;font-size:.9rem}
+.p.ans{background:var(--ok);color:#fff;border-color:var(--ok)}.p.nans{background:var(--bad);color:#fff;border-color:var(--bad)}.p.mk,.p.am{background:var(--rev);color:#fff;border-color:var(--rev)}.p.am{box-shadow:inset 0 0 0 2px #fff,0 0 0 2px var(--ok)}.p.cur{outline:3px solid var(--acc);outline-offset:1px}
+#legend{margin-top:1rem;font-size:.82rem;color:var(--mut);line-height:2.2}#legend .p{min-width:1.7rem;margin:0 .3rem 0 .6rem;padding:.1rem}#legend .p:first-child{margin-left:0}
+#marks{font-weight:600}table{width:100%;border-collapse:collapse;margin:.5rem 0 1.5rem}td,th{padding:.4rem .6rem;border-bottom:1px solid var(--line);text-align:left}
+td.correct{color:var(--ok);font-weight:600}td.wrong{color:var(--bad);font-weight:600}td.skipped{color:var(--mut)}#rscore{font-size:2.6rem;font-weight:700;margin:.2rem 0}
+.tw{overflow-x:auto}</style></head><body>
+<header><h1 id="ttl">CBT Mock Test Engine</h1><span id="timer" hidden></span></header>
+<main>
+<section id="start"><div class="card"><h2>Load a question file</h2>
+<p>Choose a <code>.json</code> question file to start a timed test. Everything runs in this browser; nothing is uploaded. Samples are in the <code>questions</code> folder.</p>
+<input type="file" id="file" accept=".json,application/json"><label for="file" class="file">Choose question file</label><div id="err" role="alert"></div></div></section>
+<section id="test" hidden><div class="layout"><div class="card"><div class="top"><span id="qhead"></span><span id="marks"></span></div>
+<div id="qtext"></div><div id="opts"></div>
+<div class="bar"><button id="prev">Previous</button><button id="mark">Mark for review</button><button id="clear">Clear answer</button><button id="next" class="primary">Save &amp; next</button><button id="submit" class="danger">Submit test</button></div></div>
+<aside class="card"><div id="pal"></div><div id="legend"></div></aside></div></section>
+<section id="result" hidden><div class="card"><h2>Result</h2><div id="rscore"></div><p id="rsum"></p>
+<h3>By section</h3><div class="tw"><table id="rsec"></table></div><h3>Per question</h3><div class="tw"><table id="rq"></table></div>
+<div class="bar"><button id="again" class="primary">Load another test</button></div></div></section></main>
+<script src="engine.js"></script><script src="app.js"></script>
+<script>const t=document.getElementById('test');new MutationObserver(()=>{document.getElementById('timer').hidden=t.hidden}).observe(t,{attributes:true,attributeFilter:['hidden']});document.getElementById('timer').hidden=t.hidden</script>
+</body></html>
